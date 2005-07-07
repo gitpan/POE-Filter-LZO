@@ -1,0 +1,15 @@
+use ExtUtils::MakeMaker;
+# See lib/ExtUtils/MakeMaker.pm for details of how to influence
+# the contents of the Makefile that is written.
+# Blah!
+
+WriteMakefile(
+			  'NAME'	=> 'POE::Filter::LZO',
+			  'PREREQ_PM' => {
+							  'POE'    => 0.31,
+							  'Compress::LZO' => 1.08,
+							  'Carp' => 0,
+							 },
+			  'VERSION_FROM' => 'lib/POE/Filter/LZO.pm', # finds $VERSION
+			  'dist' => { 'COMPRESS' => 'gzip --best' },
+			 );
