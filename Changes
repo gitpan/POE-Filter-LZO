@@ -1,6 +1,10 @@
 POE::Filter::LZO
 ================
 
+1.4	Sun Sep 10 09:30:04 BST 2006
+	- Makefile.PL executable. Fixed.
+	- Added 'use strict'.
+
 1.3	Fri Sep  1 17:32:35 BST 2006
 	- Added pod and pod coverage tests
 	- Added Changes file
