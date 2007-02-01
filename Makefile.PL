@@ -1,20 +1,9 @@
-#use ExtUtils::MakeMaker;
-# See lib/ExtUtils/MakeMaker.pm for details of how to influence
-# the contents of the Makefile that is written.
-# Blah!
-
 use inc::Module::Install;
-
+name 'POE-Filter-LZO';
 author 'Chris Williams <chris@bingosnet.co.uk>';
 license 'perl';
-
-WriteMakefile(
-			  'NAME'	=> 'POE::Filter::LZO',
-			  'PREREQ_PM' => {
-							  'POE'    => 0.3501,
-							  'Compress::LZO' => 1.08,
-							  'Carp' => 0,
-							 },
-			  'VERSION_FROM' => 'lib/POE/Filter/LZO.pm', # finds $VERSION
-			  'dist' => { 'COMPRESS' => 'gzip --best' },
-			 );
+version_from 'lib/POE/Filter/LZO.pm';
+requires 'Carp' => 0;
+requires 'POE'    => 0.38;
+requires 'Compress::LZO' => 1.08;
+WriteAll();
