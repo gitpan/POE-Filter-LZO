@@ -3,6 +3,8 @@ name 'POE-Filter-LZO';
 author 'Chris Williams <chris@bingosnet.co.uk>';
 license 'perl';
 version_from 'lib/POE/Filter/LZO.pm';
+abstract_from 'lib/POE/Filter/LZO.pm';
+build_requires 'Test::More' => 0.47;
 requires 'Carp' => 0;
 requires 'POE'    => 0.38;
 requires 'Compress::LZO' => 1.08;
