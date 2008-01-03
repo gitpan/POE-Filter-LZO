@@ -1,16 +1,22 @@
-use Test::More tests => 6;
+use Test::More tests => 10;
 BEGIN { use_ok('POE::Filter::LZO') };
 use POE::Filter::Line;
 use POE::Filter::Stackable;
 
-my $filter = POE::Filter::LZO->new();
+my $orig = POE::Filter::LZO->new();
+my $clone = $orig->clone();
+
+foreach my $filter ( $orig, $clone ) {
 
 isa_ok( $filter, "POE::Filter::LZO" );
+isa_ok( $filter, "POE::Filter" );
 
 my $teststring = "All the little fishes";
 my $compressed = $filter->put( [ $teststring ] );
 my $answer = $filter->get( [ $compressed->[0] ] );
 ok( $teststring eq $answer->[0], 'Round trip test' );
+
+}
 
 my $stack = POE::Filter::Stackable->new( Filters =>
 	[ 
